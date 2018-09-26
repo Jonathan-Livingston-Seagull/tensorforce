@@ -27,7 +27,7 @@ from tensorforce.agents import DDPGAgent
 class TestDDPGAgent(BaseAgentTest, unittest.TestCase):
 
     agent = DDPGAgent
-    with open("/media/seagull/use_me/seagull/learning/RL/tensorforce-myfork/tensorforce/examples/configs/critic_simple_network.json", 'r') as fp:
+    with open("../../examples/configs/critic_simple_network.json", 'r') as fp:
         network = json.load(fp=fp)
     config = dict(
         update_mode=dict(
@@ -47,4 +47,6 @@ class TestDDPGAgent(BaseAgentTest, unittest.TestCase):
         critic_network=network,
         target_sync_frequency=10
     )
+    exclude_bool = True
+    exclude_bounded = True
     exclude_multi = True
