@@ -18,6 +18,7 @@ from __future__ import print_function
 from __future__ import division
 
 import unittest
+import json
 
 from tensorforce.tests.base_agent_test import BaseAgentTest
 from tensorforce.agents import DDPGAgent
@@ -26,6 +27,8 @@ from tensorforce.agents import DDPGAgent
 class TestDDPGAgent(BaseAgentTest, unittest.TestCase):
 
     agent = DDPGAgent
+    with open("/media/seagull/use_me/seagull/learning/RL/tensorforce-myfork/tensorforce/examples/configs/critic_simple_network.json", 'r') as fp:
+        network = json.load(fp=fp)
     config = dict(
         update_mode=dict(
             unit='timesteps',
@@ -41,7 +44,7 @@ class TestDDPGAgent(BaseAgentTest, unittest.TestCase):
             type='adam',
             learning_rate=1e-3
         ),
-        critic_network="examples/configs/critic_simple_network.json",
+        critic_network=network,
         target_sync_frequency=10
     )
     exclude_multi = True

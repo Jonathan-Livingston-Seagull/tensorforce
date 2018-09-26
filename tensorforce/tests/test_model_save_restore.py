@@ -9,7 +9,7 @@ from tensorforce import TensorForceError
 from tensorforce.core.networks import LayeredNetwork
 from tensorforce.environments import Environment
 from tensorforce.models import DistributionModel
-from .minimal_test import MinimalTest
+from tensorforce.tests.minimal_test import MinimalTest
 from tensorforce.agents import PPOAgent
 from tensorforce.execution import Runner
 import tensorflow as tf

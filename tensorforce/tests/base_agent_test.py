@@ -18,7 +18,6 @@ from __future__ import print_function
 from __future__ import division
 
 from tensorforce.tests.base_test import BaseTest
-from tensorforce.core.networks import Dense, LayerBasedNetwork
 from tensorforce.tests.minimal_test import MinimalTest
 
 
@@ -132,6 +131,7 @@ class BaseAgentTest(BaseTest):
         exclude_bounded = self.__class__.exclude_bounded
 
         network = list()
+        names = []
         if not exclude_bool:
             network.append([
                 dict(type='input', names='bool'),
@@ -139,6 +139,7 @@ class BaseAgentTest(BaseTest):
                 dict(type='dense', size=16),
                 dict(type='output', name='bool-emb')
             ])
+            names.append('bool-emb')
         if not exclude_int:
             network.append([
                 dict(type='input', names='int'),
@@ -146,6 +147,7 @@ class BaseAgentTest(BaseTest):
                 dict(type='dense', size=16),
                 dict(type='output', name='int-emb')
             ])
+            names.append('int-emb')
         if not exclude_float:
             network.append([
                 dict(type='input', names='float'),
@@ -153,6 +155,7 @@ class BaseAgentTest(BaseTest):
                 dict(type='dense', size=16),
                 dict(type='output', name='float-emb')
             ])
+            names.append('float-emb')
         if not exclude_bounded:
             network.append([
                 dict(type='input', names='bounded'),
@@ -160,8 +163,9 @@ class BaseAgentTest(BaseTest):
                 dict(type='dense', size=16),
                 dict(type='output', name='bounded-emb')
             ])
+            names.append('bounded-emb')
         network.append([
-            dict(type='input', names=['bool-emb', 'int-emb', 'float-emb', 'bounded-emb'], aggregation_type='product'),
+            dict(type='input', names=names, aggregation_type='product'),
             dict(type='dense', size=16)
         ])
 

@@ -22,7 +22,7 @@ import unittest
 from tensorforce.tests.base_test import BaseTest
 from tensorforce.agents import VPGAgent
 from tensorforce.core.networks import Dense, LayerBasedNetwork
-from .minimal_test import MinimalTest
+from tensorforce.tests.minimal_test import MinimalTest
 
 
 class TestVPGBaselines(BaseTest, unittest.TestCase):

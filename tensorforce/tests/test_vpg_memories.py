@@ -21,7 +21,7 @@ import unittest
 
 from tensorforce.tests.base_test import BaseTest
 from tensorforce.agents import VPGAgent
-from .minimal_test import MinimalTest
+from tensorforce.tests.minimal_test import MinimalTest
 
 
 class TestVPGMemories(BaseTest, unittest.TestCase):
